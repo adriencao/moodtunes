@@ -42,9 +42,16 @@ const Login = () => {
         window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
     }
     return (
-        <div className="containerLogin">
-            <h1>hkjahskjhskjh</h1>
-            <button className="button-27" role="button" onClick={handleLogin}>Login to Spotify</button>
+        <div className="containerLogin" align="center">
+            <div>
+                <img 
+                    className="logo"
+                    src="moodtunes.svg"
+                />
+            </div>
+            <div>
+              <button className="button-27" role="button" onClick={handleLogin}>Login to Spotify</button>
+            </div>
             <img
                 className="doodle1"
                 src="doodle1.png"
