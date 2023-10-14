@@ -6,9 +6,9 @@ body {
       linear-gradient(to bottom, #a8c4bc 1.5px, transparent 1px);
   }
 
-.container {
+.containerLogin {
     text-align: center;
-    margin-top: 30%;
+    margin-top: 25%;
 }
 
 .button-27 {
