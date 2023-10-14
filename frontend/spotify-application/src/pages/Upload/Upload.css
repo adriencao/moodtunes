@@ -50,7 +50,6 @@ body {
   margin-top: 10%;
   text-align: center;
   width: 100%;
-  padding: 0 2rem;
 }
 
 .polaroid {
@@ -68,7 +67,7 @@ body {
   height: auto;
 }
 .item {
-  padding: 0px 30px 100px 150px;
+  padding: 0px 0px 100px 60px;
   width: 30%;
   display: inline-block;
   margin-top: 2rem;

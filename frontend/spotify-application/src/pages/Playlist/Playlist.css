@@ -7,22 +7,3 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
-
-.wrapper {
-  width: 100%;
-  height: auto;
-  padding: 0 2rem;
-}
-
-.playlist {
-  width: 50%;
-  align: left;
-}
-
-.item {
-  padding: 130px 30px 100px;
-  width: 100%;
-  display: inline-block;
-  margin-top: 2rem;
-  vertical-align: top;
-}
