@@ -16,6 +16,7 @@ body {
 a {
     color: black;
     font-size: 26px;
+    text-shadow: 2px 2px 2px powderblue;
 }
 
 ul {
@@ -41,3 +42,4 @@ li a {
     width: 40%;
     height: auto;
 }
+
