@@ -42,7 +42,7 @@ const Playlist = () => {
         </div>
         <div className="carousel">
           <h1>Today's mood:</h1>
-          <h1>BOOM BADA BANG BOP..... POW{mood}</h1>
+          <h1>{mood}</h1>
         </div>
       </div>
     );

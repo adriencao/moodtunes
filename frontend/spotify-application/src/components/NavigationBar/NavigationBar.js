@@ -22,7 +22,7 @@ const NavigationBar = () => {
                         </li>
                         <li>
                             <Link to="/playlist" className="nav-item home">
-                                Playlist
+                                Mood Board
                             </Link>
                         </li>
                     </ul>

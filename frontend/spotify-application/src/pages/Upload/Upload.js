@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import Webcam from "react-webcam";
 import "./Upload.css";
+import { useNavigate } from 'react-router-dom';
 
 const Upload = () => {
-
+  const navigate = useNavigate();
   useEffect(() => {
     handlePostQuery(localStorage.getItem("accessToken"));
   }, []);
@@ -15,6 +16,7 @@ const Upload = () => {
   const [image, setImage] = useState(null);
   const [webcamActive, setWebcamActive] = useState(false);
   const [isButtonEnabled, setButtonEnabled] = useState(false);
+  const [isButtonNotLoading, setButtonNotLoading] = useState(true);
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -23,6 +25,7 @@ const Upload = () => {
   };
 
   const handleSubmit = async (e) => {
+    setButtonNotLoading(false)
     e.preventDefault();
 
     const formData = new FormData();
@@ -35,9 +38,9 @@ const Upload = () => {
       });
       console.log(response);
       if (response.ok) {
-        // Handle success
+        navigate('/playlist')
       } else {
-        // Handle errors
+        setButtonNotLoading(false)
       }
     } catch (error) {
       console.error('Error:', error);
@@ -109,13 +112,26 @@ const Upload = () => {
             <img src="placeholder2.jpg" alt="Placeholder" className="capturedImage"/>
           )}
         </div>
-        {isButtonEnabled ? (
+        {isButtonEnabled && isButtonNotLoading ? (
         <div class="capture">
           <form onSubmit={handleSubmit}>
             <button type="submit" className="buttonContainer">
               <img
                 className="buttonImage"
                 src="submit.png"
+                alt="camera-icon"
+              />
+            </button>
+          </form>
+        </div>): null}
+
+        {!isButtonNotLoading? (
+        <div class="capture">
+          <form onSubmit={handleSubmit}>
+            <button type="submit" className="buttonContainer">
+              <img
+                className="buttonImage"
+                src="loading_small.gif"
                 alt="camera-icon"
               />
 
@@ -170,7 +186,6 @@ function handlePostQuery(query){
       axios.post('https://471f-4-71-27-132.ngrok-free.app/login', myParams)
           .then(function(response){
               console.log(response);
-     //Perform action based on response
       })
       .catch(function(error){
           console.log(error);
