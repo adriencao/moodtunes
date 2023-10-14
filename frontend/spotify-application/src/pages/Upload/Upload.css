@@ -126,7 +126,7 @@ body {
   height: auto;
   z-index: -1;
   left: 58.5vw;
-  top: 180px;
+  top: 23vh;
 }
 
 .tape1 {
@@ -137,6 +137,7 @@ body {
   left: 60vw;
   top: 20vh;
   transform: rotate(180deg);
+  opacity: 0.75;
 }
 
 .tape1-1 {
@@ -147,4 +148,5 @@ body {
   left: 5vw;
   top: 75vh;
   transform: rotate(45deg);
+  opacity: 0.75;
 }
