@@ -1,0 +1,19 @@
+{
+    "slides": [
+        {
+            "src": "image1.png",
+            "alt": "image 1 for carousel"
+
+        },
+        {
+            "src": "image2.png",
+            "alt": "image 2 for carousel"
+
+        },
+        {
+            "src": "image3.png",
+            "alt": "image 3 for carousel"
+
+        }
+    ]
+}

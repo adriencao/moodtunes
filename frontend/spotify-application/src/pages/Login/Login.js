@@ -5,7 +5,7 @@ import "./Login.css";
 
 const CLIENT_ID = "16ab7919b67d4085ba979a6ec8540a48";
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
-const REDIRECT_URL_AFTER_LOGIN = "http://localhost:3000/login";
+const REDIRECT_URL_AFTER_LOGIN = "http://localhost:3000/";
 const SPACE_DELIMETER = "%20";
 const SCOPES = ["user-library-read", "user-top-read", "playlist-modify-public", "user-follow-read", "playlist-modify-private"];
 const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMETER);
