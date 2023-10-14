@@ -17,6 +17,9 @@ const NavigationBar = () => {
                 <Link to="/upload">
                     <li>Upload</li>
                 </Link>
+                <Link to="/playlist">
+                    <li>Playlist</li>
+                </Link>
                 </ul>
             </nav>
         </header>
