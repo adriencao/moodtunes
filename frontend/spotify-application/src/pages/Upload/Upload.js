@@ -14,10 +14,12 @@ const Upload = () => {
   const webcamRef = useRef(null);
   const [image, setImage] = useState(null);
   const [webcamActive, setWebcamActive] = useState(false);
+  const [isButtonEnabled, setButtonEnabled] = useState(false);
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImage(imageSrc);
+    setButtonEnabled(true);
   };
 
   const handleSubmit = async (e) => {
@@ -110,11 +112,13 @@ const Upload = () => {
         <div class="capture">
           <form onSubmit={handleSubmit}>
             <button type="submit" className="buttonContainer">
+              {isButtonEnabled ? (
               <img
                 className="buttonImage"
                 src="submit.png"
                 alt="camera-icon"
-              />
+              />): null}
+
             </button>
           </form>
         </div>
