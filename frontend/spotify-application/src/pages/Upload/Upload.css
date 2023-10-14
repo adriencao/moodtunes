@@ -48,7 +48,7 @@ body {
 }
 
 .wrapper {
-  margin-top: 0vh;
+  margin-top: 20vh;
   width: 100%;
 }
 
@@ -57,6 +57,7 @@ body {
   padding: 1rem;
   box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
   z-index: 2;
+  height: 400px;
 }
 .polaroid img{
   max-width: 100%;
@@ -73,7 +74,6 @@ body {
   margin-top: 2rem;
   vertical-align: top;  
 }
-
 
 .doodle3 {
   position: absolute;
