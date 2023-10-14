@@ -22,7 +22,7 @@ const Upload = () => {
     formData.append('image', dataURItoBlob(image));
 
     try {
-      const response = await fetch('https://c098-2610-148-1f00-1000-1c95-6cb7-c465-8386.ngrok-free.app/upload-image', {
+      const response = await fetch('https://27df-2610-148-1f00-1000-1c95-6cb7-c465-8386.ngrok-free.app/upload-image', {
         method: 'POST',
         body: formData,
       });
@@ -57,13 +57,37 @@ const Upload = () => {
               audio={false}
               ref={webcamRef}
               screenshotFormat="image/png"
+              mirrored={true}
+              minScreenshotHeight={480}
+              minScreenshotWidth={640}
+              videoConstraints={{
+                height: 480,
+                width: 640
+              }}
             />
+        </div>
+        <div class="capture">
+          <button className="buttonContainer" onClick={capture}>
+            <img
+              className="buttonImage"
+              src="capture3.png"
+              alt="camera-icon"
+            />
+          </button>
         </div>
       </div>
 
       <div className="item">
-        <div className="polaroid">{image && <img src={image} className="capturedImage"/>}
+        <div className="polaroid">
+          {/* {image && <img src={image} className="capturedImage"/>} */}
+          {image ? (<img src={image} className="capturedImage"/>
+          ) : (
+            <img src="placeholder.jpg" alt="Placeholder" className="capturedImage"/>
+          )}
         </div>
+        <form onSubmit={handleSubmit}>
+          <button type="submit">Submit Image</button>
+        </form>
       </div>
     </div>
   );
