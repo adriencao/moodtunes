@@ -48,7 +48,7 @@ const Upload = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" align="center">
       <h1>Snap your picture for the day</h1>
       <div className="item">
         <div className="polaroid">
