@@ -9,6 +9,7 @@ const Upload = () => {
 
   const webcamRef = useRef(null);
   const [image, setImage] = useState(null);
+  const [webcamActive, setWebcamActive] = useState(false);
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -47,11 +48,24 @@ const Upload = () => {
     return new Blob([ab], { type: 'image/png' });
   };
 
+  useEffect(() => {
+    // Check if the webcam is available
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then(() => {
+        setWebcamActive(true); // Set the state to indicate that the webcam is active
+      })
+      .catch((error) => {
+        console.error("Error accessing webcam:", error);
+      });
+  }, []); // Run this effect only once when the component mounts
+
   return (
     <div className="wrapper" align="center">
       <h1>Snap your picture for the day</h1>
       <div className="item">
         <div className="polaroid">
+        {webcamActive ? (
             <Webcam
               className="webcam"
               audio={false}
@@ -64,7 +78,11 @@ const Upload = () => {
                 height: 480,
                 width: 640
               }}
-            />
+            />): 
+              (
+                <img src={"loading.gif"} alt="Placeholder" className="capturedImage" />
+              )
+          }
         </div>
         <div class="capture">
           <button className="buttonContainer" onClick={capture}>
@@ -82,7 +100,7 @@ const Upload = () => {
           {/* {image && <img src={image} className="capturedImage"/>} */}
           {image ? (<img src={image} className="capturedImage"/>
           ) : (
-            <img src="placeholder.jpg" alt="Placeholder" className="capturedImage"/>
+            <img src="placeholder2.jpg" alt="Placeholder" className="capturedImage"/>
           )}
         </div>
         <div class="capture">
