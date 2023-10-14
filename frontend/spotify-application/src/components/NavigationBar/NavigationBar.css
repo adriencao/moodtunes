@@ -7,7 +7,7 @@ body {
 }
 
 .NavigationBar {
-    height: 10%;
+    height: 15%;
     width: 100%;
     position: fixed;
     top: 0;
@@ -15,7 +15,7 @@ body {
 
 a {
     color: black;
-    font-size: 26px;
+    font-size: 21px;
     text-shadow: 2px 2px 2px powderblue;
 }
 
@@ -33,7 +33,7 @@ li {
 
 li a {
     display: block;
-    padding: 20px 20px;
+    padding: 25px 20px;
     text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ li a {
 
 .home {
     background-image: url('../../components/NavigationBar/NavBar_1.png'); /* Replace with the path to your image */
-  }
+}
 
 
 .nav-item {
@@ -59,4 +59,4 @@ li a {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}

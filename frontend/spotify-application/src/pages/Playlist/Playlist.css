@@ -7,3 +7,14 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+.wrapper {
+  margin-top: 20vh;
+  width: 100%;
+}
+
+.spotify {
+  width: 30%;
+  float: left;
+  margin-left: 10%;
+}

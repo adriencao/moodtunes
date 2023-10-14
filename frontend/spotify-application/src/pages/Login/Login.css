@@ -8,7 +8,10 @@ body {
 
 .containerLogin {
     text-align: center;
-    margin-top: 25%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .button-27 {
@@ -58,8 +61,8 @@ body {
   max-width: 30%;
   height: auto;
   z-index: -1;
-  left: 100px;
-  top: 150px;
+  left: 0px;
+  top: 75px;
 }
 
 .stickynote1 {
@@ -68,4 +71,11 @@ body {
   height: auto;
   z-index: -1;
   right: 50px;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  width: 70%;
+  vertical-align: middle;
 }

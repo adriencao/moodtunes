@@ -4,22 +4,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import Webcam from "react-webcam";
 import "./Upload.css";
+import { useNavigate } from 'react-router-dom';
 
 const Upload = () => {
-
+  const navigate = useNavigate();
   useEffect(() => {
     handlePostQuery(localStorage.getItem("accessToken"));
   }, []);
 
   const webcamRef = useRef(null);
   const [image, setImage] = useState(null);
+  const [webcamActive, setWebcamActive] = useState(false);
+  const [isButtonEnabled, setButtonEnabled] = useState(false);
+  const [isButtonNotLoading, setButtonNotLoading] = useState(true);
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImage(imageSrc);
+    setButtonEnabled(true);
   };
 
   const handleSubmit = async (e) => {
+    setButtonNotLoading(false)
     e.preventDefault();
 
     const formData = new FormData();
@@ -32,9 +38,9 @@ const Upload = () => {
       });
       console.log(response);
       if (response.ok) {
-        // Handle success
+        navigate('/playlist')
       } else {
-        // Handle errors
+        setButtonNotLoading(false)
       }
     } catch (error) {
       console.error('Error:', error);
@@ -51,11 +57,24 @@ const Upload = () => {
     return new Blob([ab], { type: 'image/png' });
   };
 
+  useEffect(() => {
+    // Check if the webcam is available
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then(() => {
+        setWebcamActive(true); // Set the state to indicate that the webcam is active
+      })
+      .catch((error) => {
+        console.error("Error accessing webcam:", error);
+      });
+  }, []); // Run this effect only once when the component mounts
+
   return (
     <div className="wrapper" align="center">
       <h1>Snap your picture for the day</h1>
       <div className="item">
         <div className="polaroid">
+          {webcamActive ? (
             <Webcam
               className="webcam"
               audio={false}
@@ -68,7 +87,11 @@ const Upload = () => {
                 height: 480,
                 width: 640
               }}
-            />
+            />): 
+              (
+                <img src={"loading.gif"} alt="Placeholder" className="capturedImage" />
+              )
+          }
         </div>
         <div class="capture">
           <button className="buttonContainer" onClick={capture}>
@@ -86,9 +109,10 @@ const Upload = () => {
           {/* {image && <img src={image} className="capturedImage"/>} */}
           {image ? (<img src={image} className="capturedImage"/>
           ) : (
-            <img src="placeholder.jpg" alt="Placeholder" className="capturedImage"/>
+            <img src="placeholder2.jpg" alt="Placeholder" className="capturedImage"/>
           )}
         </div>
+        {isButtonEnabled && isButtonNotLoading ? (
         <div class="capture">
           <form onSubmit={handleSubmit}>
             <button type="submit" className="buttonContainer">
@@ -99,7 +123,21 @@ const Upload = () => {
               />
             </button>
           </form>
-        </div>
+        </div>): null}
+
+        {!isButtonNotLoading? (
+        <div class="capture">
+          <form onSubmit={handleSubmit}>
+            <button type="submit" className="buttonContainer">
+              <img
+                className="buttonImage"
+                src="loading_small.gif"
+                alt="camera-icon"
+              />
+
+            </button>
+          </form>
+        </div>): null}
       </div>
       <img
         className="tape1-1"
@@ -148,7 +186,6 @@ function handlePostQuery(query){
       axios.post('https://471f-4-71-27-132.ngrok-free.app/login', myParams)
           .then(function(response){
               console.log(response);
-     //Perform action based on response
       })
       .catch(function(error){
           console.log(error);
