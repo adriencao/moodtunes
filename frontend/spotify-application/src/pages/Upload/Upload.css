@@ -8,5 +8,49 @@ body {
 
 .container {
     text-align: center;
-    margin-top: 30%;
+    margin-top: 50%;
+}
+
+.webcam {
+  padding-bottom: 80px;
+  margin-top: 10%;
+}
+
+.capturedImage {
+  padding-bottom: 80px;
+  margin-top: 10%;
+}
+
+.buttonContainer {
+  width: 50%;
+  height: 50%;
+}
+.buttonImage {
+  width: 50%;
+  height: 50%;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0 2rem;
+}
+.polaroid {
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+  
+}
+.polaroid img{
+  max-width: 100%;
+  height: auto;
+}
+.polaroid .webcam{
+  max-width: 100%;
+  height: auto;
+}
+.item {
+  padding: 130px 30px 100px 150px;
+  width: 30%;
+  display: inline-block;
+  margin-top: 2rem;
 }

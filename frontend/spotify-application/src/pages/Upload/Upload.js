@@ -7,7 +7,7 @@ import "./Upload.css";
 
 const Upload = () => {
 
-    const webcamRef = useRef(null);
+  const webcamRef = useRef(null);
   const [image, setImage] = useState(null);
 
   const capture = () => {
@@ -48,28 +48,37 @@ const Upload = () => {
   };
 
   return (
-    <div>
-      <Webcam
-        audio={false}
-        ref={webcamRef}
-        screenshotFormat="image/png"
-      />
+    <div className="wrapper">
 
-      <button className="buttonCamera" onClick={capture}>
-        <img
-            className="buttonImage"
-          src="Capture.png"
-          alt="camera-icon"
-        />
-      </button>
+      <div className="item">
+        <div className="polaroid">
+            <Webcam
+              className="webcam"
+              audio={false}
+              ref={webcamRef}
+              screenshotFormat="image/png"
+            />
+        </div>
+      </div>
 
-      {image && <img src={image} alt="Captured Image" />}
-
-      <form onSubmit={handleSubmit}>
-        <button type="submit">Upload Image</button>
-      </form>
+      <div className="item">
+        <div className="polaroid">{image && <img src={image} className="capturedImage"/>}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Upload;
+
+// {/* <button className="buttonContainer" onClick={capture}>
+//         <img
+//           className="buttonImage"
+//           src="Capture.png"
+//           alt="camera-icon"
+//         />
+//       </button> */}
+
+//       <form onSubmit={handleSubmit}>
+//         <button type="submit">Upload Image</button>
+//       </form>
