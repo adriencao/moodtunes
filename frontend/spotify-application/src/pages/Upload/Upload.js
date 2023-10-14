@@ -109,19 +109,19 @@ const Upload = () => {
             <img src="placeholder2.jpg" alt="Placeholder" className="capturedImage"/>
           )}
         </div>
+        {isButtonEnabled ? (
         <div class="capture">
           <form onSubmit={handleSubmit}>
             <button type="submit" className="buttonContainer">
-              {isButtonEnabled ? (
               <img
                 className="buttonImage"
                 src="submit.png"
                 alt="camera-icon"
-              />): null}
+              />
 
             </button>
           </form>
-        </div>
+        </div>): null}
       </div>
       <img
         className="tape1-1"
