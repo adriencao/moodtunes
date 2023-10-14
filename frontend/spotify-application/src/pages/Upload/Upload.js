@@ -71,7 +71,7 @@ const Upload = () => {
       <h1>Snap your picture for the day</h1>
       <div className="item">
         <div className="polaroid">
-        {webcamActive ? (
+          {webcamActive ? (
             <Webcam
               className="webcam"
               audio={false}
