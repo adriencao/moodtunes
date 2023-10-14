@@ -6,19 +6,25 @@ import "./NavigationBar.css";
 const NavigationBar = () => {
     return (
         <div align="center">
-            <img src="NavBar.svg" className="folderTabs"/>
+            {/* <img src="NavBar.svg" className="folderTabs"/> */}
             <header className="NavigationBar">
                 <nav>
                     <ul>
-                        <Link to="/">
-                            <li>Home</li>
+                        <li>
+                        <Link to="/" className="nav-item home">
+                            Home
                         </Link>
-                        <Link to="/upload">
-                            <li>Upload</li>
+                        </li>
+                        <li>
+                        <Link to="/upload" className="nav-item home">
+                            Upload
                         </Link>
-                        <Link to="/playlist">
-                            <li>Playlist</li>
+                        </li>
+                        <li>
+                        <Link to="/playlist" className="nav-item home">
+                            Playlist
                         </Link>
+                        </li>
                     </ul>
                 </nav>
             </header>

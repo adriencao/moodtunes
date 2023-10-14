@@ -37,9 +37,26 @@ li a {
     text-decoration: none;
 }
 
-.folderTabs {
+.tab {
     margin-top: 2%;
-    width: 40%;
-    height: auto;
 }
 
+/* .folderTabs {
+    margin-top: 2%;
+    width: 50%;
+    height: 8vh;
+} */
+
+.home {
+    background-image: url('../../components/NavigationBar/NavBar_1.png'); /* Replace with the path to your image */
+  }
+
+
+.nav-item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
