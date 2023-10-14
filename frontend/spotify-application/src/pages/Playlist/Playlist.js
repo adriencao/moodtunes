@@ -6,24 +6,31 @@ import "./Playlist.css";
 
 const Playlist = () => {
     const [mood, setMood] = useState(null); // Initialize the state variable
-  
+    const [playlist, setPlaylist] = useState(null);
+
     useEffect(() => {
-      // Make the GET request to obtain the mood data
-      // For example, using the Fetch API
-      fetch('https://471f-4-71-27-132.ngrok-free.app/mood')
-        .then((response) => response.json())
-        .then((data) => {
-          // Set the mood data in the state
-          setMood(data.mood);
-        })
-        .catch((error) => console.error('Error fetching data:', error));
-    }, []); // Empty dependency array to ensure the effect runs once
+      axios
+    .get('https://471f-4-71-27-132.ngrok-free.app/get-data')
+    .then(function (response) {
+      console.log(response);
+      // Perform action based on response
+
+      setPlaylist(response["data"]["playlistLink"]);
+      setMood(response["data"]["mood"])
+      console.log(playlist);
+      console.log(mood);
+    })
+    .catch(function (error) {
+      console.log(error);
+      // Perform action based on error
+    });
+    }, []);
 
     return (
       <div className="wrapper" align="center">
         <div className="spotify">
           <iframe 
-            src="https://open.spotify.com/embed/artist/6HvZYsbFfjnjFrWF950C9d?utm_source=generator" 
+            src={playlist} 
             width="100%" 
             height="500" 
             allowfullscreen="" 
