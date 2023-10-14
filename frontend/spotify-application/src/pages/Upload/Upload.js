@@ -7,6 +7,10 @@ import "./Upload.css";
 
 const Upload = () => {
 
+  useEffect(() => {
+    handlePostQuery(localStorage.getItem("accessToken"));
+  }, []);
+
   const webcamRef = useRef(null);
   const [image, setImage] = useState(null);
 
@@ -22,7 +26,7 @@ const Upload = () => {
     formData.append('image', dataURItoBlob(image));
 
     try {
-      const response = await fetch('https://27df-2610-148-1f00-1000-1c95-6cb7-c465-8386.ngrok-free.app/upload-image', {
+      const response = await fetch('https://471f-4-71-27-132.ngrok-free.app/upload-image', {
         method: 'POST',
         body: formData,
       });
@@ -131,7 +135,29 @@ const Upload = () => {
       />
     </div>
   );
+  
 };
+
+function handlePostQuery(query){
+
+  var myParams = {
+      data: query
+  }
+
+  if (query != "") {
+      axios.post('https://471f-4-71-27-132.ngrok-free.app/login', myParams)
+          .then(function(response){
+              console.log(response);
+     //Perform action based on response
+      })
+      .catch(function(error){
+          console.log(error);
+     //Perform action based on error
+      });
+  } else {
+      alert("The search query cannot be empty")
+  }
+}
 
 export default Upload;
 

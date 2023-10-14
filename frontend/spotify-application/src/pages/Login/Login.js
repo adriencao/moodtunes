@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "./Login.css";
 
@@ -21,17 +22,19 @@ const getReturnedParamsFromSpotifyAuth = (hash) => {
 };
 
 const Login = () => {
+    const navigate = useNavigate();
+
     useEffect(() => {
         if (window.location.hash) {
             const {access_token, expires_in, token_type} = getReturnedParamsFromSpotifyAuth(window.location.hash);
             console.log({access_token});
 
-            // localStorage.clear();
-            // localStorage.setItem("accessToken", access_token);
-            // localStorage.setItem("expiresIn", expires_in);
-            // localStorage.setItem("tokenType", token_type);
+            localStorage.clear();
+            localStorage.setItem("accessToken", access_token);
+            localStorage.setItem("expiresIn", expires_in);
+            localStorage.setItem("tokenType", token_type);
 
-            handlePostQuery(access_token);
+            navigate('/upload');
         }
     });
 
