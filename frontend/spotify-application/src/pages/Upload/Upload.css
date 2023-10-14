@@ -47,6 +47,8 @@ body {
 }
 
 .wrapper {
+  margin-top: 10%;
+  text-align: center;
   width: 100%;
   padding: 0 2rem;
 }
@@ -66,15 +68,89 @@ body {
   height: auto;
 }
 .item {
-  padding: 130px 30px 100px 150px;
+  padding: 0px 30px 100px 150px;
   width: 30%;
   display: inline-block;
   margin-top: 2rem;
   vertical-align: top;
 }
 
-.background_images {
+.background_image1 {
   position: absolute;
   z-index: -1;
   left: 500px;
+}
+
+.doodle3 {
+  position: absolute;
+  max-width: 8%;
+  height: auto;
+  z-index: -1;
+  right: 540px;
+  top: 670px;
+}
+
+.doodle3-1 {
+  position: absolute;
+  max-width: 8%;
+  height: auto;
+  z-index: -1;
+  right: 50px;
+  top: 160px;
+}
+
+.doodle4 {
+  position: absolute;
+  max-width: 6%;
+  height: auto;
+  z-index: 0;
+  left: 260px;
+  top: 670px;
+}
+
+.doodle5 {
+  position: absolute;
+  max-width: 7%;
+  height: auto;
+  z-index: -1;
+  left: 200px;
+  top: 250px;
+}
+
+.doodle6 {
+  position: absolute;
+  max-width: 7%;
+  height: auto;
+  z-index: -1;
+  left: 150px;
+  top: 400px;
+}
+
+.square1 {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  z-index: -1;
+  left: 1020px;
+  top: 180px;
+}
+
+.tape1 {
+  position: absolute;
+  max-width: 20%;
+  height: auto;
+  z-index: 0;
+  left: 1040px;
+  top: 160px;
+  transform: rotate(180deg);
+}
+
+.tape1-1 {
+  position: absolute;
+  max-width: 20%;
+  height: auto;
+  z-index: 0;
+  left: 150px;
+  top: 630px;
+  transform: rotate(0deg);
 }

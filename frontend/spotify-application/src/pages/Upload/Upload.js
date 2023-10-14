@@ -48,8 +48,8 @@ const Upload = () => {
   };
 
   return (
-    
     <div className="wrapper">
+      <h1>Snap your picture for the day</h1>
       <div className="item">
         <div className="polaroid">
             <Webcam
@@ -98,8 +98,36 @@ const Upload = () => {
         </div>
       </div>
       <img
-        className="background_images"
-        src="notes.png"
+        className="tape1-1"
+        src="tape1.png"
+      />
+      <img
+        className="doodle3"
+        src="doodle3.png"
+      />
+      <img
+        className="doodle4"
+        src="doodle4.png"
+      />
+      <img
+        className="doodle5"
+        src="doodle5.png"
+      />
+      <img
+        className="doodle6"
+        src="doodle6.png"
+      />
+      <img
+        className="square1"
+        src="square1.png"
+      />
+            <img
+        className="doodle3-1"
+        src="doodle3.png"
+      />
+      <img
+        className="tape1"
+        src="tape1.png"
       />
     </div>
   );

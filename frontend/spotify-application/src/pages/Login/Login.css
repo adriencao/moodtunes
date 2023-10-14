@@ -52,3 +52,20 @@ body {
   box-shadow: none;
   transform: translateY(0);
 }
+
+.doodle1 {
+  position: absolute;
+  max-width: 30%;
+  height: auto;
+  z-index: -1;
+  left: 100px;
+  top: 150px;
+}
+
+.stickynote1 {
+  position: absolute;
+  max-width: 20%;
+  height: auto;
+  z-index: -1;
+  right: 50px;
+}

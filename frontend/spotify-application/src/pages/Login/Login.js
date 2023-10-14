@@ -42,6 +42,14 @@ const Login = () => {
         <div className="containerLogin">
             <h1>hkjahskjhskjh</h1>
             <button className="button-27" role="button" onClick={handleLogin}>Login to Spotify</button>
+            <img
+                className="doodle1"
+                src="doodle1.png"
+            />
+            <img
+                className="stickynote1"
+                src="stickynote1.png"
+            />
         </div>
     );
 };
