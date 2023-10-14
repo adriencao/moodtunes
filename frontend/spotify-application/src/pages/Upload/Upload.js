@@ -26,7 +26,7 @@ const Upload = () => {
         method: 'POST',
         body: formData,
       });
-
+      console.log(response);
       if (response.ok) {
         // Handle success
       } else {
@@ -85,9 +85,17 @@ const Upload = () => {
             <img src="placeholder.jpg" alt="Placeholder" className="capturedImage"/>
           )}
         </div>
-        <form onSubmit={handleSubmit}>
-          <button type="submit">Submit Image</button>
-        </form>
+        <div class="capture">
+          <form onSubmit={handleSubmit}>
+            <button type="submit" className="buttonContainer">
+              <img
+                className="buttonImage"
+                src="submit.png"
+                alt="camera-icon"
+              />
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

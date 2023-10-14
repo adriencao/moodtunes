@@ -31,12 +31,19 @@ body {
   background-color: transparent;
   outline: none;
   border: none;
+  cursor: pointer;
 }
+
+.buttonImage:active {
+  filter: drop-shadow(6px 6px gray);
+}
+
 .buttonImage {
   padding-top: 20px;
   width: 100%;
   height: 90%;
   align-items: center;
+  
 }
 
 .wrapper {
