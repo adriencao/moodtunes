@@ -4,6 +4,7 @@ body {
     background-image:
       linear-gradient(to right, #a8c4bc 1.5px, transparent 1px),
       linear-gradient(to bottom, #a8c4bc 1.5px, transparent 1px);
+    overflow-y: hidden;
   }
 
 .containerUpload {
@@ -48,9 +49,7 @@ body {
 
 .wrapper {
   margin-top: 10%;
-  text-align: center;
   width: 100%;
-  padding: 0 2rem;
 }
 
 .polaroid {
@@ -68,26 +67,21 @@ body {
   height: auto;
 }
 .item {
-  padding: 0px 30px 100px 150px;
-  width: 30%;
+  padding: 0px 5vw 100px 5vw;
+  width: 30vw;
   display: inline-block;
   margin-top: 2rem;
-  vertical-align: top;
+  vertical-align: top;  
 }
 
-.background_image1 {
-  position: absolute;
-  z-index: -1;
-  left: 500px;
-}
 
 .doodle3 {
   position: absolute;
   max-width: 8%;
   height: auto;
   z-index: -1;
-  right: 540px;
-  top: 670px;
+  right: 43vw;
+  top: 85vh;
 }
 
 .doodle3-1 {
@@ -95,8 +89,8 @@ body {
   max-width: 8%;
   height: auto;
   z-index: -1;
-  right: 50px;
-  top: 160px;
+  right: 5vw;
+  top: 18vh;
 }
 
 .doodle4 {
@@ -104,8 +98,8 @@ body {
   max-width: 6%;
   height: auto;
   z-index: 0;
-  left: 260px;
-  top: 670px;
+  left: 5vw;
+  top: 85vh;
 }
 
 .doodle5 {
@@ -113,8 +107,8 @@ body {
   max-width: 7%;
   height: auto;
   z-index: -1;
-  left: 200px;
-  top: 250px;
+  left: 8vw;
+  top: 30vh;
 }
 
 .doodle6 {
@@ -122,8 +116,8 @@ body {
   max-width: 7%;
   height: auto;
   z-index: -1;
-  left: 150px;
-  top: 400px;
+  left: 4vw;
+  top: 35vh;
 }
 
 .square1 {
@@ -131,7 +125,7 @@ body {
   max-width: 100%;
   height: auto;
   z-index: -1;
-  left: 1020px;
+  left: 58.5vw;
   top: 180px;
 }
 
@@ -140,8 +134,8 @@ body {
   max-width: 20%;
   height: auto;
   z-index: 0;
-  left: 1040px;
-  top: 160px;
+  left: 60vw;
+  top: 20vh;
   transform: rotate(180deg);
 }
 
@@ -150,7 +144,7 @@ body {
   max-width: 20%;
   height: auto;
   z-index: 0;
-  left: 150px;
-  top: 630px;
-  transform: rotate(0deg);
+  left: 5vw;
+  top: 75vh;
+  transform: rotate(45deg);
 }
