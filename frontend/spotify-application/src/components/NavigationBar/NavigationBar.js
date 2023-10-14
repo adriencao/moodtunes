@@ -11,19 +11,19 @@ const NavigationBar = () => {
                 <nav>
                     <ul>
                         <li>
-                        <Link to="/" className="nav-item home">
-                            Home
-                        </Link>
+                            <Link to="/" className="nav-item home">
+                                Home
+                            </Link>
                         </li>
                         <li>
-                        <Link to="/upload" className="nav-item home">
-                            Upload
-                        </Link>
+                            <Link to="/upload" className="nav-item home">
+                                Upload
+                            </Link>
                         </li>
                         <li>
-                        <Link to="/playlist" className="nav-item home">
-                            Playlist
-                        </Link>
+                            <Link to="/playlist" className="nav-item home">
+                                Playlist
+                            </Link>
                         </li>
                     </ul>
                 </nav>
