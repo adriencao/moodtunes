@@ -6,7 +6,7 @@ body {
       linear-gradient(to bottom, #a8c4bc 1.5px, transparent 1px);
   }
 
-.container {
+.containerUpload {
     text-align: center;
     margin-top: 50%;
 }
@@ -43,6 +43,7 @@ body {
   width: 100%;
   padding: 0 2rem;
 }
+
 .polaroid {
   background: #fff;
   padding: 1rem;
