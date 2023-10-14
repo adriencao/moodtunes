@@ -14,6 +14,9 @@ const NavigationBar = () => {
                 <Link to="/login">
                     <li>Login</li>
                 </Link>
+                <Link to="/upload">
+                    <li>Upload</li>
+                </Link>
                 </ul>
             </nav>
         </header>

@@ -48,8 +48,8 @@ const Upload = () => {
   };
 
   return (
+    
     <div className="wrapper">
-
       <div className="item">
         <div className="polaroid">
             <Webcam
@@ -97,6 +97,10 @@ const Upload = () => {
           </form>
         </div>
       </div>
+      <img
+        className="background_images"
+        src="notes.png"
+      />
     </div>
   );
 };

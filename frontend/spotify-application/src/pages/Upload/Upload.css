@@ -55,7 +55,7 @@ body {
   background: #fff;
   padding: 1rem;
   box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
-  
+  z-index: 2;
 }
 .polaroid img{
   max-width: 100%;
@@ -71,4 +71,10 @@ body {
   display: inline-block;
   margin-top: 2rem;
   vertical-align: top;
+}
+
+.background_images {
+  position: absolute;
+  z-index: -1;
+  left: 500px;
 }
