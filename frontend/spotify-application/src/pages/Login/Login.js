@@ -53,7 +53,7 @@ function handlePostQuery(query){
     }
 
     if (query != "") {
-        axios.post('https://27df-2610-148-1f00-1000-1c95-6cb7-c465-8386.ngrok-free.app/login', myParams)
+        axios.post('https://471f-4-71-27-132.ngrok-free.app/login', myParams)
             .then(function(response){
                 console.log(response);
        //Perform action based on response

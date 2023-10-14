@@ -7,6 +7,7 @@ import NavigationBar from "./components/NavigationBar";
 import Hero from "./components/Hero";
 import Login from "./pages/Login";
 import Upload from "./pages/Upload";
+import Playlist from "./pages/Playlist";
 const App = () => {
   return (
     <Router>
@@ -23,6 +24,12 @@ const App = () => {
         <Route path="/upload"
           element={
             <Upload />
+            // <h1>Welcome!</h1>
+          } />
+
+        <Route path="/playlist"
+          element={
+            <Playlist />
             // <h1>Welcome!</h1>
           } />
 

@@ -1,0 +1,28 @@
+body {
+  background-size: 40px 40px;
+  background-color: white;
+  background-image:
+    linear-gradient(to right, #a8c4bc 1.5px, transparent 1px),
+    linear-gradient(to bottom, #a8c4bc 1.5px, transparent 1px);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  height: auto;
+  padding: 0 2rem;
+}
+
+.playlist {
+  width: 50%;
+  align: left;
+}
+
+.item {
+  padding: 130px 30px 100px;
+  width: 100%;
+  display: inline-block;
+  margin-top: 2rem;
+  vertical-align: top;
+}
