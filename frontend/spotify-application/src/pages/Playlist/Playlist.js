@@ -40,11 +40,12 @@ const Playlist = () => {
             loading="lazy">
           </iframe>
         </div>
-        <div className="carousel">
+        <div className="pics" align="center">
           <h1>Today's mood:</h1>
-          <h1>{mood}</h1>
+          <h2>{mood}</h2>
+          <Carousel data = {slides} />
         </div>
-        <Carousel data = {slides} />
+        
       </div>
     );
 };

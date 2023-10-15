@@ -8,13 +8,38 @@ body {
   overflow-x: hidden;
 }
 
+h1 {
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+h2 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+
 .wrapper {
   margin-top: 20vh;
   width: 100%;
 }
 
 .spotify {
-  width: 30%;
+  width: 25%;
   float: left;
   margin-left: 10%;
+  margin-right: 5%;
+}
+
+.pics {
+  display: flex;
+  flex-direction: column;
+  /* border: 5px solid; */
+  width: 50%;
+  float: right;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: skyblue;
+  border-radius: 2%;
+  opacity: 0.9;
 }
