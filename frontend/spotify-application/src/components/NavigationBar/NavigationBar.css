@@ -7,10 +7,15 @@ body {
 }
 
 .NavigationBar {
+    vertical-align: center;
     height: 15%;
     width: 100%;
     position: fixed;
     top: 0;
+    display: flex;
+    flex-direction: row;
+    /* border: 5px solid; */
+
 }
 
 a {
@@ -19,44 +24,26 @@ a {
     text-shadow: 2px 2px 2px powderblue;
 }
 
-ul {
-    list-style-type: none;
-    margin: 2%;
-    padding: 10px 10px;
-    overflow: hidden;
-}
-
-li {
-    float: left;
-    margin-right: 10px;
-}
-
-li a {
-    display: block;
-    padding: 25px 20px;
+.link {
+    text-decoration: none;
+    font-size: 24px;
+    margin-left: 90px;
+    margin-top: 65px;
     text-decoration: none;
 }
 
-.tab {
-    margin-top: 2%;
-}
-
-/* .folderTabs {
-    margin-top: 2%;
-    width: 50%;
-    height: 8vh;
-} */
-
 .home {
-    background-image: url('../../components/NavigationBar/NavBar_1.png'); /* Replace with the path to your image */
+    margin-right: 35px; 
 }
 
+.upload {
+    margin-right: 10px;
+}
 
-.nav-item {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.folder {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: -1;
+    width: 40%;
 }
