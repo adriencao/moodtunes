@@ -5,12 +5,6 @@ import Carousel from "../../components/Carousel";
 import data from "../../data/carouselData.json";
 const Playlist = () => {
     const {slides} = data;
-    return (
-      <Carousel data = {slides} />
-
-
-
-const Playlist = () => {
     const [mood, setMood] = useState(null); // Initialize the state variable
     const [playlist, setPlaylist] = useState(null);
 
@@ -50,6 +44,7 @@ const Playlist = () => {
           <h1>Today's mood:</h1>
           <h1>{mood}</h1>
         </div>
+        <Carousel data = {slides} />
       </div>
     );
 };
