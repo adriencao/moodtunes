@@ -10,6 +10,10 @@ const Playlist = () => {
     const [imageData1, setImageData1] = useState(null);
     const [imageData2, setImageData2] = useState(null);
     const [imageData3, setImageData3] = useState(null);
+    const [imageData4, setImageData4] = useState(null);
+    const [imageData5, setImageData5] = useState(null);
+    const [imageData6, setImageData6] = useState(null);
+    const [imageData7, setImageData7] = useState(null);
     const image = [
           {
               "src": imageData1,
@@ -25,6 +29,26 @@ const Playlist = () => {
               "src": imageData3,
               "alt": "image 3 for carousel"
   
+          },
+          {
+              "src": imageData4,
+              "alt": "image 3 for carousel"
+  
+          },
+          {
+            "src": imageData5,
+            "alt": "image 3 for carousel"
+
+          },
+          {
+            "src": imageData6,
+            "alt": "image 3 for carousel"
+
+          },
+          {
+            "src": imageData7,
+            "alt": "image 3 for carousel"
+
           }
       ]
 
@@ -77,6 +101,50 @@ const Playlist = () => {
         console.error(error);
       });
       console.log(imageData3);
+
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data4')
+    .then((response4) => response4.blob())
+    .then((imageBlob4) => {
+      const imageURL4 = URL.createObjectURL(imageBlob4);
+      setImageData4(imageURL4);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    console.log(imageData4);
+
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data5')
+      .then((response5) => response5.blob())
+      .then((imageBlob5) => {
+        const imageURL5 = URL.createObjectURL(imageBlob5);
+        setImageData5(imageURL5);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      console.log(imageData5);
+
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data6')
+      .then((response6) => response6.blob())
+      .then((imageBlob6) => {
+        const imageURL6 = URL.createObjectURL(imageBlob6);
+        setImageData6(imageURL6);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      console.log(imageData6);
+
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data7')
+    .then((response7) => response7.blob())
+    .then((imageBlob7) => {
+      const imageURL7 = URL.createObjectURL(imageBlob7);
+      setImageData7(imageURL7);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    console.log(imageData7);
 
     }, []);
 
