@@ -45,33 +45,33 @@ const Playlist = () => {
       // Perform action based on error
     });
     
-    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data')
-      .then((response) => response.blob())
-      .then((imageBlob) => {
-        const imageURL = URL.createObjectURL(imageBlob);
-        setImageData1(imageURL);
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data1')
+      .then((response1) => response1.blob())
+      .then((imageBlob1) => {
+        const imageURL1 = URL.createObjectURL(imageBlob1);
+        setImageData1(imageURL1);
       })
       .catch((error) => {
         console.error(error);
       });
       console.log(imageData1);
 
-    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data')
-      .then((response) => response.blob())
-      .then((imageBlob) => {
-        const imageURL = URL.createObjectURL(imageBlob);
-        setImageData2(imageURL);
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data2')
+      .then((response2) => response2.blob())
+      .then((imageBlob2) => {
+        const imageURL2 = URL.createObjectURL(imageBlob2);
+        setImageData2(imageURL2);
       })
       .catch((error) => {
         console.error(error);
       });
       console.log(imageData2);
 
-    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data')
-      .then((response) => response.blob())
-      .then((imageBlob) => {
-        const imageURL = URL.createObjectURL(imageBlob);
-        setImageData3(imageURL);
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data3')
+      .then((response3) => response3.blob())
+      .then((imageBlob3) => {
+        const imageURL3 = URL.createObjectURL(imageBlob3);
+        setImageData3(imageURL3);
       })
       .catch((error) => {
         console.error(error);
