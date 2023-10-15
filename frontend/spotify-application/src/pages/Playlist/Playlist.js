@@ -4,9 +4,29 @@ import "./Playlist.css";
 import Carousel from "../../components/Carousel";
 import data from "../../data/carouselData.json";
 const Playlist = () => {
-    const {slides} = data;
+    // const {slides} = data;
     const [mood, setMood] = useState(null); // Initialize the state variable
     const [playlist, setPlaylist] = useState(null);
+    const [imageData1, setImageData1] = useState(null);
+    const [imageData2, setImageData2] = useState(null);
+    const [imageData3, setImageData3] = useState(null);
+    const image = [
+          {
+              "src": imageData1,
+              "alt": "image 1 for carousel"
+  
+          },
+          {
+              "src": imageData2,
+              "alt": "image 2 for carousel"
+  
+          },
+          {
+              "src": imageData3,
+              "alt": "image 3 for carousel"
+  
+          }
+      ]
 
     useEffect(() => {
       axios
@@ -24,9 +44,44 @@ const Playlist = () => {
       console.log(error);
       // Perform action based on error
     });
+    
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data')
+      .then((response) => response.blob())
+      .then((imageBlob) => {
+        const imageURL = URL.createObjectURL(imageBlob);
+        setImageData1(imageURL);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      console.log(imageData1);
+
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data')
+      .then((response) => response.blob())
+      .then((imageBlob) => {
+        const imageURL = URL.createObjectURL(imageBlob);
+        setImageData2(imageURL);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      console.log(imageData2);
+
+    fetch('https://471f-4-71-27-132.ngrok-free.app/get-image-data')
+      .then((response) => response.blob())
+      .then((imageBlob) => {
+        const imageURL = URL.createObjectURL(imageBlob);
+        setImageData3(imageURL);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      console.log(imageData3);
+
     }, []);
 
     return (
+      
       <div className="wrapper" align="center">
         <div className="spotify">
           <iframe 
@@ -43,9 +98,8 @@ const Playlist = () => {
         <div className="pics" align="center">
           <h1>Today's mood:</h1>
           <h2>{mood}</h2>
-          <Carousel data = {slides} />
+          <Carousel data = {image} />
         </div>
-        
       </div>
     );
 };
