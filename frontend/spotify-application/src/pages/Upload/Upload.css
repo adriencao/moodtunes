@@ -80,8 +80,8 @@ body {
   max-width: 8%;
   height: auto;
   z-index: -1;
-  right: 43vw;
-  top: 85vh;
+  right: 44vw;
+  top: 69vh;
 }
 
 .doodle3-1 {
@@ -98,8 +98,8 @@ body {
   max-width: 6%;
   height: auto;
   z-index: 0;
-  left: 5vw;
-  top: 85vh;
+  left: 12vw;
+  top: 70vh;
 }
 
 .doodle5 {
@@ -117,7 +117,7 @@ body {
   height: auto;
   z-index: -1;
   left: 4vw;
-  top: 35vh;
+  top: 45vh;
 }
 
 .square1 {
@@ -146,7 +146,7 @@ body {
   height: auto;
   z-index: 0;
   left: 5vw;
-  top: 75vh;
+  top: 65vh;
   transform: rotate(45deg);
   opacity: 0.75;
 }
