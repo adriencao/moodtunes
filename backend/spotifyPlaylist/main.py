@@ -14,18 +14,30 @@ db = {}
 
 API_TOKEN = "d8e59d4bc74949f9b912ef5a4704ba43"
 EMOTION_NAMES = ["angry", "disgust", "fear", "happy", "neutral", "sad", "surprise"]
+# EMOTION_DICT = {
+#     'angry': {"target_danceability": 0.5, "target_energy": 0.9, "target_loudness": 0.9, "target_valence": 0.5,
+#               "min_tempo": 100, "max_tempo": 120, "target_tempo": 120, "target_mode": 0},
+#     'fear': {"target_danceability": 0.2, "target_energy": 0.3, "target_loudness": 0.5, "target_valence": 0.3,
+#              "min_tempo": 100, "max_tempo": 120, "target_tempo": 120, "target_mode": 0},
+#     'happy': {"target_danceability": 1.0, "target_energy": 0.9, "target_loudness": 0.8, "target_valence": 1.0,
+#               "min_tempo": 100, "max_tempo": 120, "target_tempo": 145, "target_mode": 1},
+#     'neutral': {"target_danceability": 0.5, "target_energy": 0.5, "target_loudness": 0.5, "target_valence": 0.5,
+#                 "target_tempo": 120, "target_mode": 1},
+#     'sad': {"target_danceability": 0.2, "target_energy": 0.2, "target_loudness": 0.2, "target_valence": 0.0,
+#             "min_tempo": 100, "max_tempo": 120, "target_tempo": 90, "target_mode": 0}
+# }
 EMOTION_DICT = {
-    'angry': {"target_danceability": 0.5, "target_energy": 0.9, "target_loudness": 0.9, "target_valence": 0.5,
-              "min_tempo": 100, "max_tempo": 120, "target_tempo": 120, "target_mode": 0},
-    'fear': {"target_danceability": 0.2, "target_energy": 0.3, "target_loudness": 0.5, "target_valence": 0.3,
-             "min_tempo": 100, "max_tempo": 120, "target_tempo": 120, "target_mode": 0},
-    'happy': {"target_danceability": 1.0, "target_energy": 0.9, "target_loudness": 0.8, "target_valence": 1.0,
-              "min_tempo": 100, "max_tempo": 120, "target_tempo": 145, "target_mode": 1},
-    'neutral': {"target_danceability": 0.5, "target_energy": 0.5, "target_loudness": 0.5, "target_valence": 0.5,
-                "target_tempo": 120, "target_mode": 1},
-    'sad': {"target_danceability": 0.2, "target_energy": 0.2, "target_loudness": 0.2, "target_valence": 0.0,
-            "min_tempo": 100, "max_tempo": 120, "target_tempo": 90, "target_mode": 0}
+    'angry': {"target_danceability": 0.55, "target_energy": 0.8, "min_popularity": 60, "target_speechiness": 0.28, "target_valence": 0.5,  "min_tempo": 81, "max_tempo": 167, "target_acousticness": 0.15},
+
+    'fear': {"target_danceability": 0.45, "target_energy": 0.36, "min_popularity": 60, "target_speechiness": 0.05, "target_valence": 0.35, "min_tempo": 70, "max_tempo": 145, "target_acousticness": 0.75},
+
+    'happy': {"target_danceability": .8, "target_energy": 0.75, "min_popularity": 60, "target_speechiness": 0.1,  "min_valence": .5, "min_tempo": 100, "max_tempo": 180, "target_acousticness": 0.05},
+
+    'neutral': {"target_danceability": 0.5, "target_energy": 0.5, "target_loudness": 0.5, "min_popularity": 40, "target_speechiness": 0.08, "target_valence": 0.4, "target_tempo": 100, "target_acousticness": 0.5},
+
+    'sad': {"target_danceability": 0.45, "target_energy": 0.32, "min_popularity": 60, "target_speechiness": 0.04, "max_valence": 0.5, "min_tempo": 60, "max_tempo": 145, "target_acousticness": 0.5},
 }
+
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -75,7 +87,7 @@ def upload_image():
 
     playlist_link = create_playlist_and_add_songs_with_link(sp, dominant_mood, user_id, playlist)
 
-    db[current_user]["mood"] = dominant_mood.upper()
+    db[current_user]["mood"] = dominant_mood.upper() if dominant_mood != "fear" else "WORRIED"
     print(playlist_link)
     return playlist_link, 200
 
@@ -85,6 +97,8 @@ def get_data():
     playlist = db[current_user]["playlist"]["external_urls"]["spotify"]
     playlist = playlist.replace("playlist", "embed/playlist")
     db[current_user]["playlistLink"] = playlist
+    if db[current_user]["mood"] == "fear":
+        db[current_user]["mood"] = "worried"
     return db[current_user], 200
 
 
@@ -126,6 +140,55 @@ def get_image_data_3():
 
     return Response(image_data, content_type='image/jpeg')
 
+@app.route('/get-image-data4', methods=['GET'])
+def get_image_data_4():
+    try:
+        image_path = db[current_user]["images"][3]
+    except:
+        image_path = "placeholder.jpg"
+
+    with open(image_path, 'rb') as image_file:
+        image_data = image_file.read()
+
+    return Response(image_data, content_type='image/jpeg')
+
+
+@app.route('/get-image-data5', methods=['GET'])
+def get_image_data_5():
+    try:
+        image_path = db[current_user]["images"][4]
+    except:
+        image_path = "placeholder.jpg"
+
+    with open(image_path, 'rb') as image_file:
+        image_data = image_file.read()
+
+    return Response(image_data, content_type='image/jpeg')
+
+
+@app.route('/get-image-data6', methods=['GET'])
+def get_image_data_6():
+    try:
+        image_path = db[current_user]["images"][5]
+    except:
+        image_path = "placeholder.jpg"
+
+    with open(image_path, 'rb') as image_file:
+        image_data = image_file.read()
+
+    return Response(image_data, content_type='image/jpeg')
+
+@app.route('/get-image-data7', methods=['GET'])
+def get_image_data_7():
+    try:
+        image_path = db[current_user]["images"][6]
+    except:
+        image_path = "placeholder.jpg"
+
+    with open(image_path, 'rb') as image_file:
+        image_data = image_file.read()
+
+    return Response(image_data, content_type='image/jpeg')
 
 def emotions(image_path):
     url = "https://api.luxand.cloud/photo/emotions"
@@ -165,24 +228,67 @@ def create_playlist_and_add_songs_with_link(sp, mood, user_id, playlist):
 def recommend_songs_by_mood(sp, mood):
     # Define a seed track to start recommendations
     try:
-        seed_track = random.choice(sp.current_user_top_tracks(limit=10, time_range='short_term')['items'])['uri']
-        if mood == "neutral":
+        if mood == "happy":
+            seed_track = random.choice(sp.current_user_top_tracks(limit=10, time_range='short_term')['items'])['uri']
+            print(seed_track)
             recommended_tracks = sp.recommendations(
                 seed_tracks=[seed_track],
                 target_danceability=EMOTION_DICT[mood]["target_danceability"],
                 target_energy=EMOTION_DICT[mood]["target_energy"],
-                target_loudness=EMOTION_DICT[mood]["target_loudness"],
+                min_popularity=EMOTION_DICT[mood]["min_popularity"],
+                target_speechiness=EMOTION_DICT[mood]["target_speechiness"],
+                min_valence=EMOTION_DICT[mood]["min_valence"],
+                min_tempo=EMOTION_DICT[mood]["min_tempo"],
+                max_tempo=EMOTION_DICT[mood]["max_tempo"],
+                target_acousticness=EMOTION_DICT[mood]["target_acousticness"]
+            )
+        elif mood == "sad":
+            seed_track = random.choice(sp.current_user_top_tracks(limit=10, time_range='short_term')['items'])['uri']
+            recommended_tracks = sp.recommendations(
+                seed_tracks=[seed_track],
+                target_danceability=EMOTION_DICT[mood]["target_danceability"],
+                target_energy=EMOTION_DICT[mood]["target_energy"],
+                min_popularity=EMOTION_DICT[mood]["min_popularity"],
+                target_speechiness=EMOTION_DICT[mood]["target_speechiness"],
+                max_valence=EMOTION_DICT[mood]["max_valence"],
+                min_tempo=EMOTION_DICT[mood]["min_tempo"],
+                max_tempo=EMOTION_DICT[mood]["max_tempo"],
+                target_acousticness=EMOTION_DICT[mood]["target_acousticness"]
+            )
+        elif mood == "angry":
+            seed_track = random.choice(sp.current_user_top_tracks(limit=10, time_range='short_term')['items'])['uri']
+            recommended_tracks = sp.recommendations(
+                seed_tracks=[seed_track],
+                seed_genres=["rap", "rock"],
+                target_danceability=EMOTION_DICT[mood]["target_danceability"],
+                target_energy=EMOTION_DICT[mood]["target_energy"],
                 target_valence=EMOTION_DICT[mood]["target_valence"],
-                target_popularity=100
+                min_popularity=EMOTION_DICT[mood]["min_popularity"],
+                target_speechiness=EMOTION_DICT[mood]["target_speechiness"],
+                target_acousticness=EMOTION_DICT[mood]["target_acousticness"]
+            )
+        elif mood == "neutral":
+            seed_track = random.choice(sp.current_user_top_tracks(limit=10, time_range='short_term')['items'])['uri']
+            recommended_tracks = sp.recommendations(
+                seed_tracks=[seed_track],
+                target_danceability=EMOTION_DICT[mood]["target_danceability"],
+                target_energy=EMOTION_DICT[mood]["target_energy"],
+                target_valence=EMOTION_DICT[mood]["target_valence"],
+                min_popularity=EMOTION_DICT[mood]["min_popularity"],
+                target_speechiness=EMOTION_DICT[mood]["target_speechiness"],
+                target_tempo=EMOTION_DICT[mood]["target_tempo"],
+                target_acousticness=EMOTION_DICT[mood]["target_acousticness"]
             )
         else:
+            seed_track = random.choice(sp.current_user_top_tracks(limit=10, time_range='short_term')['items'])['uri']
             recommended_tracks = sp.recommendations(
                 seed_tracks=[seed_track],
                 target_danceability=EMOTION_DICT[mood]["target_danceability"],
                 target_energy=EMOTION_DICT[mood]["target_energy"],
-                target_loudness=EMOTION_DICT[mood]["target_loudness"],
                 target_valence=EMOTION_DICT[mood]["target_valence"],
-                target_mode=EMOTION_DICT[mood]["target_mode"]
+                min_popularity=EMOTION_DICT[mood]["min_popularity"],
+                target_speechiness=EMOTION_DICT[mood]["target_speechiness"],
+                target_acousticness=EMOTION_DICT[mood]["target_acousticness"]
             )
     except:
         print("SEED ERROR")
@@ -190,9 +296,9 @@ def recommend_songs_by_mood(sp, mood):
             seed_genres=["pop"],
             target_danceability=EMOTION_DICT[mood]["target_danceability"],
             target_energy=EMOTION_DICT[mood]["target_energy"],
-            target_loudness=EMOTION_DICT[mood]["target_loudness"],
-            target_valence=EMOTION_DICT[mood]["target_valence"],
-            target_mode=EMOTION_DICT[mood]["target_mode"]
+            min_popularity=EMOTION_DICT[mood]["min_popularity"],
+            target_speechiness=EMOTION_DICT[mood]["target_speechiness"],
+            target_acousticness=EMOTION_DICT[mood]["target_acousticness"]
         )
     recommended_songs = []
 
