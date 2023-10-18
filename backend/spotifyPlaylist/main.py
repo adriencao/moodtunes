@@ -12,20 +12,8 @@ token = ""
 current_user = ""
 db = {}
 
-API_TOKEN = "d8e59d4bc74949f9b912ef5a4704ba43"
+API_TOKEN = "api-token"
 EMOTION_NAMES = ["angry", "disgust", "fear", "happy", "neutral", "sad", "surprise"]
-# EMOTION_DICT = {
-#     'angry': {"target_danceability": 0.5, "target_energy": 0.9, "target_loudness": 0.9, "target_valence": 0.5,
-#               "min_tempo": 100, "max_tempo": 120, "target_tempo": 120, "target_mode": 0},
-#     'fear': {"target_danceability": 0.2, "target_energy": 0.3, "target_loudness": 0.5, "target_valence": 0.3,
-#              "min_tempo": 100, "max_tempo": 120, "target_tempo": 120, "target_mode": 0},
-#     'happy': {"target_danceability": 1.0, "target_energy": 0.9, "target_loudness": 0.8, "target_valence": 1.0,
-#               "min_tempo": 100, "max_tempo": 120, "target_tempo": 145, "target_mode": 1},
-#     'neutral': {"target_danceability": 0.5, "target_energy": 0.5, "target_loudness": 0.5, "target_valence": 0.5,
-#                 "target_tempo": 120, "target_mode": 1},
-#     'sad': {"target_danceability": 0.2, "target_energy": 0.2, "target_loudness": 0.2, "target_valence": 0.0,
-#             "min_tempo": 100, "max_tempo": 120, "target_tempo": 90, "target_mode": 0}
-# }
 EMOTION_DICT = {
     'angry': {"target_danceability": 0.55, "target_energy": 0.8, "min_popularity": 60, "target_speechiness": 0.28, "target_valence": 0.5,  "min_tempo": 81, "max_tempo": 167, "target_acousticness": 0.15},
 
@@ -37,7 +25,6 @@ EMOTION_DICT = {
 
     'sad': {"target_danceability": 0.45, "target_energy": 0.32, "min_popularity": 60, "target_speechiness": 0.04, "max_valence": 0.5, "min_tempo": 60, "max_tempo": 145, "target_acousticness": 0.5},
 }
-
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -206,9 +193,8 @@ def emotions(image_path):
         print("Can't recognize people:", response.text)
         return None
 
-
+# Create a new playlist with a specific name based on mood
 def create_playlist_and_add_songs_with_link(sp, mood, user_id, playlist):
-    # Create a new playlist with a specific name based on mood
 
     # Get recommended songs based on mood
     recommended_songs = recommend_songs_by_mood(sp, mood)  # Adjust audio features as needed
@@ -309,18 +295,6 @@ def recommend_songs_by_mood(sp, mood):
 
     return recommended_songs
 
-
-def calculate_audio_features_from_mood(mood):
-    # Calculate valence based on mood
-    valence = mood  # Valence is directly related to mood (0.0 to 1.0)
-
-    # Calculate energy based on mood (you can adjust this formula)
-    energy = mood * 0.8  # Adjust the factor for energy as needed
-
-    # Calculate danceability based on mood (you can adjust this formula)
-    danceability = 0.4 + mood * 0.6  # Adjust the range and factor as needed
-
-    return valence, energy, danceability
 
 
 if __name__ == '__main__':
