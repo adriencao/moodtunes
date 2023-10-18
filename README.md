@@ -137,9 +137,9 @@ https://youtu.be/fxdVDwkRnDM
 [Flask]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
 
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/adriencao/mood-spotify.svg?style=for-the-badge
 [contributors-url]: https://github.com/adriencao/mood-spotify/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/adriencao/mood-spotify.svg?style=for-the-badge
 [forks-url]: https://github.com/adriencao/mood-spotify/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/adriencao/mood-spotify.svg?style=for-the-badge
 [stars-url]: https://github.com/adriencao/mood-spotify/stargazers
